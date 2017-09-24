@@ -1,0 +1,97 @@
+import java.util.Scanner;
+public class Calendar {
+    public static void main(String[] args) {
+        System.out.println("Enter a year ");
+        Scanner input=new Scanner(System.in);
+        int year=input.nextInt();
+        System.out.println("Enter January 1st day of week numerically ");
+        Scanner input2=new Scanner(System.in);
+        int day=input2.nextInt();
+        for (int q=1, e=1; q<=12 && e<=12; q++, e++){
+        	String month="";
+        	switch(e){
+        	case 1:
+                month="January"; break;
+            case 2:
+                month="February"; break;
+            case 3:
+                month="March"; break;
+            case 4:
+                month="April"; break;
+            case 5:
+                month="May"; break;
+            case 6:
+                month="June"; break;
+            case 7:
+                month="July"; break;
+            case 8:
+                month="August"; break;
+            case 9:
+                month="September"; break;
+            case 10:
+                month="October"; break;
+            case 11:
+                month="November"; break;
+            case 12:
+                month="December"; break;
+        	}
+            System.out.println("         "+month+" "+year);
+            System.out.println("______________________________");
+            System.out.println("  Su  Mo  Tu  We  Th  Fr  Sa");
+        	
+        	for(int z=1; z<=day;z++)
+                System.out.print("    ");
+            int days=0;
+                switch(q){
+                case 1:
+                    days=31; break;
+                case 2:
+                	if (year==1900 || (year-1900)%4==0)
+                    	days=29;
+                    else 
+                    	days=28; 
+                    break;
+                case 3:
+                    days=31; break;
+                case 4:
+                    days=30; break;
+                case 5:
+                    days=31; break;
+                case 6:
+                    days=30; break;
+                case 7:
+                    days=31; break;
+                case 8:
+                    days=31; break;
+                case 9:
+                    days=30; break;
+                case 10:
+                    days=31; break;
+                case 11:
+                    days=30; break;
+                case 12:
+                    days=31; break;
+                }
+                for (int i=1;i<=days;i++){
+                    if ((i+day)%7==0){
+                        if (i<10)
+                            System.out.println("   "+i);
+                        else {
+                            System.out.println("  "+i);
+                        }
+            }
+                    else {
+                        if (i<10)
+                            System.out.print("   "+i);
+                        else {
+                            System.out.print("  "+i);
+                        }
+                    }                  
+            }
+                int next=(days%7+(day))%7;
+                day=next;
+                System.out.println();
+                System.out.println();
+            }
+        }
+    }
