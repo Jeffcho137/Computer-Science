@@ -1,0 +1,6 @@
+#Towers of Hanoi
+def f(n,a,b,c):
+    if n>0:
+        f(n-1,a,c,b)
+        print('move disc from', a, 'to', c)
+        f(n-1,b,a,c)
