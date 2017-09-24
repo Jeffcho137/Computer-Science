@@ -1,0 +1,7 @@
+y=float(input("Enter a number"))
+print(y)
+while True:
+    x=float(input("Enter the next number"))
+    thesum=y+x
+    y=thesum
+    print("The sum is", thesum)
