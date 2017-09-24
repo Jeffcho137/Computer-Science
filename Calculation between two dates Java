@@ -1,0 +1,137 @@
+import java.util.Scanner;
+public class A170519_Cho {
+	public static void main(String[] args) {
+		System.out.println("Enter the first date (Format-year, month, day & please press enter for each year, month, and day) ");
+        Scanner input=new Scanner(System.in);
+        int year1=input.nextInt();
+        int month1=input.nextInt();
+        int day1=input.nextInt();
+        System.out.println("Enter the second date (Format-year, month, day & please press enter for each year, month, and day) ");
+        Scanner input2=new Scanner(System.in);
+        int year2=input2.nextInt();
+    	int month2=input2.nextInt();
+    	int day2=input2.nextInt();
+    	int a = ndays(year1,month1,day1,year2,month2,day2);
+		//int a=ndays(2017,8,5,2019,5,3); This can be used, but I'm assuming people want to input dates
+	System.out.print(a);
+	}
+		public static int ndays(int year1, int month1, int day1, int year2, int month2, int day2){
+			int days=0;
+			int x=0;
+			int y=0;
+			int diffyear=year2-year1;
+			int totalyeardays=diffyear*365;
+			int monthdiff=month2-month1;
+			if (monthdiff>0){
+				for (int i=month1;i<=month2-1;i++){
+					if (i==1){
+						days=31;}
+					else if (i==2){
+						for (int e=year1;e<=year2;e++)
+							if ((e % 4 == 0) && (e % 100 != 0) || (e % 400 == 0)){
+								days=29; break;}
+							else {
+								days=28;}
+								}
+					else if (i==3){
+						days=31;}
+					else if (i==4){
+						days=30;}
+					else if (i==5){
+						days=31;}
+					else if (i==6){
+						days=30;}
+					else if (i==7){
+						days=31;}
+					else if (i==8){
+						days=31;}
+					else if (i==9){
+						days=30;}
+					else if (i==10){
+						days=31;}
+					else if (i==11){
+						days=30;}
+					else if (i==12){
+						days=31;}
+					x+=days;
+				}
+			x=x-day1+day2+totalyeardays;	
+			}
+			else {
+				for (int i=month1; i<=12 ;i++){
+					if (i==1){
+						days=31;}
+					else if (i==2){
+						for (int e=year1;e<=year2;e++)
+							if ((e % 4 == 0) && (e % 100 != 0) || (e % 400 == 0)){
+								days=29;break;}
+							else {
+								days=28;}
+						//if ((year1 % 4 == 0) && (year1 % 100 != 0) || (year1 % 400 == 0)){
+						//	days=29;}
+						//else {
+						 //   days=28;}
+								}
+					else if (i==3){
+						days=31;}
+					else if (i==4){
+						days=30;}
+					else if (i==5){
+						days=31;}
+					else if (i==6){
+						days=30;}
+					else if (i==7){
+						days=31;}
+					else if (i==8){
+						days=31;}
+					else if (i==9){
+						days=30;}
+					else if (i==10){
+						days=31;}
+					else if (i==11){
+						days=30;}
+					else if (i==12){
+						days=31;}
+					x+=days;
+					}
+			
+				for (int t=1; t<=month2-1 ;t++){
+					if (t==1 && (month2-t)>0){
+						days=31;}
+					else if (t==2){
+						for (int e=year1;e<=year2;e++)
+							if ((e % 4 == 0) && (e % 100 != 0) || (e % 400 == 0)){
+								days=29; break;}
+							else {
+								days=28;}
+							}
+					else if (t==3){
+						days=31;}
+					else if (t==4){
+						days=30;}
+					else if (t==5){
+						days=31;}
+					else if (t==6){
+						days=30;}
+					else if (t==7){
+						days=31;}
+					else if (t==8){
+						days=31;}
+					else if (t==9){
+						days=30;}
+					else if (t==10){
+						days=31;}
+					else if (t==11){
+						days=30;}
+					else if (t==12){
+						days=31;}
+					else {
+						days=0;
+					}
+  					y+=days;
+					}
+				x=x+(diffyear-1)*365+day2-day1+y;		
+					
+		}return x;
+			}
+}
