@@ -1,0 +1,25 @@
+x=int(input("What is the number?"))
+z=1
+while x<=0:
+    print("That is not a positive integer.")
+    x=int(input("Please enter another number."))
+    continue
+for x in range(1, x+1):
+    z*=x
+print(z)
+    
+continue_on='yes'
+while continue_on=='yes':
+    continue_on=input("Would you like to enter another number? If so, type yes ")
+    if continue_on!="yes":
+        break
+    x=int(input("What is the next number?"))
+    z=1
+    while x<=0:
+        print("That is not a positive integer.")
+        x=int(input("Please enter another number."))
+        continue
+    for x in range(1, x+1):
+        z*=x
+    print(z)
+print("Bye.")
