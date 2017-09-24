@@ -1,0 +1,10 @@
+a=int(input("What is the height?"))
+for x in range(a):
+    number=1
+    pascal=[number]
+    for y in range(x):
+        number=number*(x-y)/(y+1) 
+        pascal.append(number)
+    for z in pascal:
+        print(int(z), end=' ')
+    print()
