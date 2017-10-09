@@ -1,0 +1,49 @@
+##Input-
+##    -location of object
+##    -height of object
+##
+##Processing
+##    1. Get location of object and height of object.
+##    2. Calculate location of image, magnification of image, and height of image.
+##    3. Determine if image is real/virtual or inverted/upright.
+##    4. Display the location of image, whether image is real/virtual, whether image is inverted/upright, the magnification of image, and the height of image.
+##
+##Program Output
+##    - Display the location of image, whether image is real/virtual, whether image is inverted/upright, the magnification of image, and the height of image.
+##
+f=int(20)
+while True:
+    s=float(input("Please enter the location of the object in cm "))
+    while s<0:
+        s=float(input("Error! Please enter a valid value for the location of the object in cm "))
+    h=float(input("What is height of object in cm "))
+    while h<0:
+        h=float(input("Error! Please enter a valid value for the location of the object in cm "))
+    if s==f:
+        print("The image does not exist ")
+        answer=str(input("Do you wish to continue? If so, type y, if not, type q "))
+        if str(answer) =="y":
+            continue
+        elif str(answer) =="q":
+            break
+    elif s>f:
+        s_prime=float(1/((1/f)-(1/s)))
+        magnification=(-1*s_prime)/(s)
+        h_prime=-1*magnification*h
+        print("The location of image = ",format(s_prime,".0f"),"cm", "\nThe image is real", "\nThe image is inverted", "\nmagnification = ",format(magnification,".0f"), "\nheight of image = ",format(h_prime,".0f"),"cm")
+        answer=str(input("Do you wish to continue? If so, type y, if not, type q "))
+        if answer =="y":
+            continue
+        elif answer =="q":
+            break
+    else:
+        s_prime=float(1/((1/f)-(1/s)))
+        magnification=(-1*s_prime)/(s)
+        h_prime=magnification*h
+        print("The location of image = ",format(s_prime,".0f"),"cm", "\nThe image is real", "\nThe image is inverted", "\nmagnification = ",format(magnification,".0f"), "\nheight of image = ",format(h_prime,".0f"),"cm")
+        answer=str(input("Do you wish to continue? If so, type y, if not, type q "))
+        if answer =="y":
+            continue
+        elif answer =="q":
+            break
+               
