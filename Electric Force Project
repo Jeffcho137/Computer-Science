@@ -1,0 +1,54 @@
+import math
+k=(9*10**9)
+q1=(2*10**-6)
+while True:
+    side=float(input("Please enter the length of one side of the triangle. "))
+    while side<0:
+        side=float(input("Error! Please enter the length of one side of the triangle. "))
+    chargex=float(input("What is the charge you would like to place on the x axis in ÂµC? "))
+    chargequad=float(input("What is the charge you would like to place in the first quadrant in ÂµC? "))
+    if chargex>0 and chargequad>0:
+        fx=((k*q1*(chargex*10**-6))/(side**2))+(((k*q1*(chargequad*10**-6))/(side**2))*math.cos(60*(math.pi/180)))
+        fy=(((k*q1*(chargequad*10**-6))/(side**2))*math.sin(60*(math.pi/180)))
+        direction=format((math.atan(fy/fx)*(180/math.pi))+180,'.0f')
+        force=(fx**2+fy**2)**0.5
+    elif chargex>0 and chargequad<0:
+        fx=((k*q1*(chargex*10**-6))/(side**2))-(((k*q1*(-1*chargequad*10**-6))/(side**2))*math.cos(60*(math.pi/180)))
+        fy=(((k*q1*(-1*chargequad*10**-6))/(side**2))*math.sin(60*(math.pi/180)))
+        direction=format((math.atan(fx/fy)*(180/math.pi))+90,'.0f')
+        force=(fx**2+fy**2)**0.5
+    elif chargex<0 and chargequad<0:
+        fx=((k*q1*(-1*chargex*10**-6))/(side**2))+(((k*q1*(-1*chargequad*10**-6))/(side**2))*math.cos(60*(math.pi/180)))
+        fy=(((k*q1*(-1*chargequad*10**-6))/(side**2))*math.sin(60*(math.pi/180)))
+        direction=format((math.atan(fy/fx)*(180/math.pi)),'.0f')
+        force=(fx**2+fy**2)**0.5
+    elif chargex<0 and chargequad>0:
+        fx=((k*q1*(-1*chargex*10**-6))/(side**2))-(((k*q1*(chargequad*10**-6))/(side**2))*math.cos(60*(math.pi/180)))
+        fy=(((k*q1*(chargequad*10**-6))/(side**2))*math.sin(60*(math.pi/180)))
+        direction=format((math.atan(fx/fy)*(180/math.pi))+270,'.0f')
+        force=(fx**2+fy**2)**0.5
+    else:
+        if chargex==0 and chargequad!=0:
+            if chargequad>0:
+                force=(k*q1*(chargequad*10**-6))/(side**2)
+                direction=240
+            else:
+                direction=60
+                force=(k*q1*(-1*chargequad*10**-6))/(side**2)
+        elif chargex!=0 and chargequad==0:
+            if chargex>0:
+                force=(k*q1*(chargex*10**-6))/(side**2)
+                direction=90
+            else:
+                force=(k*q1*(-1*chargex*10**-6))/(side**2)
+                direction=0
+        else:
+            force=0
+            direction="any angle"
+    print("The force is ",format(force, '.5f')," N",end='\n')
+    print("The direction is ",direction," degrees above the horizontal",end='\n')
+    answer=str(input("Do you wish to continue? If so, type y, if not, type q "))
+    if str(answer) =="y":
+        continue
+    elif str(answer) =="q":
+        break
