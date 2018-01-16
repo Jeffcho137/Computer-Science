@@ -1,0 +1,85 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+
+using namespace std;
+void showMenu();
+void choices(int & tsmall, int & tmed, int & tlg, int&small, int&med, int&lg);
+void cost(int small, int med, int lg);
+void inventory(int tsmall, int tmed, int tlg );
+void revenue(int tsmall, int tmed, int tlg);
+int main()
+{
+    //tsmall = tmed = tlg = 0;
+    int loop=1;
+    int tsmall, tmed, tlg, small, med, lg;
+    tsmall = tmed = tlg=0;
+
+    while (loop!=4)
+        {
+        showMenu();
+        cin >> loop;
+        switch(loop)
+        {
+        case 1:
+            choices(tsmall, tmed,tlg,small,med,lg );
+            break;
+        case 2:
+            inventory(tsmall,tmed,tlg);
+            break;
+        case 3:
+            revenue(tsmall,tmed,tlg);
+            break;
+        case 4:
+            loop=4;
+            break;
+        default:
+            cout << "Error, please enter a valid option " << endl;
+        }
+    }
+    return 0;
+}
+void showMenu()
+{
+cout << "Welcome to the coffee shop! \nHere are your choices \n\t\t (1) Buy Coffee \n\t\t (2) Managers Only: Total cups and coffee sold \n\t\t (3) Managers Only: Money Made \n\t\t (4) Exit"<< endl;
+}
+void choices(int&tsmall, int &tmed, int&tlg, int&small, int&med, int&lg)
+{
+cout << "Enter number of large cups" <<endl;
+cin >> lg;
+cout << "Enter number of medium cups" << endl;
+cin >> med;
+cout << "Enter number of small cups" << endl;
+cin >> small;
+
+tsmall+=small;
+tmed+=med;
+tlg+=lg;
+cost(small, med,lg);
+cout << "\n" << endl;
+}
+void cost(int small, int med, int lg)
+{
+    double smallprice = 1.75; double medprice = 1.90; double lgprice = 2.00;
+    double smallcost= small*smallprice;
+    double medcost = med*medprice;
+    double lgcost = lg*lgprice;
+    double totalcost = smallcost + medcost + lgcost;
+    //cout << setfill(' ') << setw(10) << endl;
+    cout << "Qty" << setfill(' ') << setw(10) << "Item" <<setfill(' ') << setw(16)<< "Amount" << "\n" << endl;
+    cout << small << "     Small cups      " << "$" << fixed << setprecision(2) << smallcost << endl;
+    cout << med << "     Medium cups     " << "$" << fixed << setprecision(2) << medcost << endl;
+    cout << lg << "     Large cups      " << "$" << fixed << setprecision(2) << lgcost << "\n" << endl;
+    cout << "Total Cost: " << setfill(' ') << setw(12) << "$" << totalcost << "\n" << endl;
+}
+void inventory(int tsmall, int tmed, int tlg)
+{
+    cout << "Large cups: " << tlg << "\n" << "Medium cups: " << tmed << "\n" << "Small cups: " << tsmall << "\n" << endl;
+}
+void revenue(int tsmall,int tmed,int tlg)
+{
+    double smallprice = 1.75; double medprice = 1.9; double lgprice = 2;
+    double totalrevenue = tsmall*smallprice + tmed*medprice + tlg*medprice;
+    cout << "The total revenue is $" << fixed << setprecision(2) << totalrevenue << "\n" << endl;
+}
