@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1523544270 source:e:\senior programming\settemplate\arraylisttypeimp.cpp
+	<cassert>
+	<iostream>
+	"arrayListType.h"
+
+1524165304 e:\senior programming\settemplate\arraylisttype.h
+	<iostream>
+	<cassert>
+
+1525791776 source:e:\senior programming\settemplate\main.cpp
+	<iostream>
+	"unorderedSet.h"
+
+1525307102 source:e:\senior programming\settemplate\unorderedarraylisttypeimp.cpp
+	<iostream>
+	"unorderedArrayListType.h"
+
+1524165304 e:\senior programming\settemplate\unorderedarraylisttype.h
+	"arrayListType.h"
+
+1525961878 e:\senior programming\settemplate\unorderedset.h
+	"unorderedArrayListType.h"
+	<iostream>
+
